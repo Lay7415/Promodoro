@@ -1,9 +1,8 @@
-import classes from './TimerPage.module.css';
+import classes from './CardChameleon.module.css';
 import { useSelector } from 'react-redux';
-const TimerPage =(props)=> {
+const CardChameleon =(props)=> {
     const colorChangeData = useSelector(state => state.color.ChangeColorWebsiteData.websiteColor)
-    console.log(colorChangeData)
-    const ChangeColorWebsiteHundler =()=> {
+    const ChangeCardColorHundler=()=> {
         if(colorChangeData === 'red') {
             return classes.redMenu
         } else if(colorChangeData === 'seaGreen') {
@@ -12,6 +11,6 @@ const TimerPage =(props)=> {
             return classes.blueMenu
         }
     }
-    return<div className={ChangeColorWebsiteHundler()}>{props.children}</div>
+    return <div className={ChangeCardColorHundler()}>{props.children}</div>
 }
-export default TimerPage
+export default CardChameleon

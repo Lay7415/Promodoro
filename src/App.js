@@ -1,8 +1,9 @@
 import './App.css';
-import TimerPage from './components/Timer_page/TimerPage';
+import Timer from './components/Timer/Timer';
 function App() {
   return (
     <div className="App">
+      <Timer/>
     </div>
   );
 }
