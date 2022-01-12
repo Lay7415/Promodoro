@@ -1,7 +1,7 @@
 import classes from './CardChameleon.module.css';
 import { useSelector } from 'react-redux';
 const CardChameleon =(props)=> {
-    const colorChangeData = useSelector(state => state.color.ChangeColorWebsiteData.websiteColor)
+    const colorChangeData = useSelector(state => state.color.ChangeColorWebsiteData.backgound)
     const ChangeCardColorHundler=()=> {
         if(colorChangeData === 'red') {
             return classes.redMenu

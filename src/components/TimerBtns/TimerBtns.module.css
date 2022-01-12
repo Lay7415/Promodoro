@@ -1,0 +1,22 @@
+.wrapBtns {
+    display: flex;
+    justify-content: space-between;
+}
+.redBtn {
+    background-color: #e49c99;
+    border: 0.1px;
+    border-radius: 6px;
+}
+.seaGreenBtn {
+    background-color: #9de0e2;
+    border: 0.1px;
+    border-radius: 6px;
+}
+.blueBtn {
+    background-color: #9ec7e4;
+    border: 0.1px;
+    border-radius: 6px;
+}
+.activebtn {
+    filter: brightness(85%);
+}

@@ -1,7 +1,7 @@
 import classes from './TimerPage.module.css';
 import { useSelector } from 'react-redux';
 const TimerPage =(props)=> {
-    const colorChangeData = useSelector(state => state.color.ChangeColorWebsiteData.websiteColor)
+    const colorChangeData = useSelector(state => state.color.ChangeColorWebsiteData.backgound)
     console.log(colorChangeData)
     const ChangeColorWebsiteHundler =()=> {
         if(colorChangeData === 'red') {
