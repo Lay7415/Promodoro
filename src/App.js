@@ -1,9 +1,9 @@
 import './App.css';
-import TimeSetting from './components/Time-Setting/TimeSetting';
+import TimerPage from './components/Timer_page/TimerPage';
 function App() {
   return (
     <div className="App">
-      <TimeSetting/>
+      <TimerPage>dfgdsfgds</TimerPage>
     </div>
   );
 }
