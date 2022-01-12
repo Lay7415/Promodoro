@@ -1,22 +1,32 @@
 .wrapBtns {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 20px;
 }
 .redBtn {
     background-color: #e49c99;
     border: 0.1px;
     border-radius: 6px;
+    transition:0.8s ease;
+    -moz-transition:0.8s ease;
 }
 .seaGreenBtn {
     background-color: #9de0e2;
     border: 0.1px;
     border-radius: 6px;
+    transition:0.8s ease;
+    -moz-transition:0.8s ease;
 }
 .blueBtn {
     background-color: #9ec7e4;
     border: 0.1px;
     border-radius: 6px;
+    transition:0.8s ease;
+    -moz-transition:0.8s ease;
 }
 .activebtn {
     filter: brightness(85%);
+    transition:0.2s ease;
+    -moz-transition:0.2s ease;
+    -webkit-transition:0.2s ease;
 }

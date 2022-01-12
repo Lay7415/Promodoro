@@ -5,6 +5,7 @@ const Timer =()=> {
     return <div className={classes.box}>
         <CardChameleon>
             <TimerBtns/>
+            <div></div>
         </CardChameleon>
     </div>
 }
