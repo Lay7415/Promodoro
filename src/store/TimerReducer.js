@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const TimerReducer = createSlice({
     name:'formreducer',
     initialState: {
-        data:{}
+        data:{},
     },
     reducers:{
         ConsoleLog(state,action) {
