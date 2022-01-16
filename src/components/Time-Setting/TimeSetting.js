@@ -64,18 +64,18 @@ const TimeSetting =()=> {
                     </div>
                 </div>
                 <div className={classes.box}>
-                <h4>Auto start Breaks?</h4>
-                <label className={classes.switch}>
-                <input onChange={autoBreakValueChangeHundler} className={classes.check} type="checkbox"/>
-                <span className={classes.slider}></span>
-                </label>
+                    <h4>Auto start Breaks?</h4>
+                    <label className={classes.switch}>
+                        <input onChange={autoBreakValueChangeHundler} className={classes.check} type="checkbox"/>
+                        <span className={classes.slider}></span>
+                    </label>
                 </div>
                 <div className={classes.box}>
-                <h4>Auto start Pomodoros?</h4>
-                <label className={classes.switch}>
-                <input onChange={autoStartValueChangeHundler} className={classes.check} type="checkbox"/>
-                <span className={classes.slider}></span>
-                </label>
+                    <h4>Auto start Pomodoros?</h4>
+                    <label className={classes.switch}>
+                        <input onChange={autoStartValueChangeHundler} className={classes.check} type="checkbox"/>
+                        <span className={classes.slider}></span>
+                    </label>
                 </div>
                 <div className={classes.box}>
                     <h4>Long Break interval</h4>

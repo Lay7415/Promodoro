@@ -1,12 +1,19 @@
+.box {
+    display: flex;
+    justify-content: center;
+}
 .redMenu {
-    width: 219.4%;
     background-color: #DB524D;
+    transition:0.7s ease;
+    -moz-transition:0.7s ease;
 }
 .seaGreenMenu {
-    width: 219.4%;
     background-color: #468E91;
+    transition:0.7s ease;
+    -moz-transition:0.7s ease;
 }
 .blueMenu {
-    width: 219.4%;
     background-color: #437EA8;
+    transition:0.7s ease;
+    -moz-transition:0.7s ease;
 }

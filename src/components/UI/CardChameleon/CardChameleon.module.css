@@ -1,19 +1,19 @@
 .redMenu {
-    background-color: #e49c99;
+    background-color: #E49C99;
     border: 0.1px;
     border-radius: 6px;
     transition:0.8s ease;
     -moz-transition:0.8s ease;
 }
 .seaGreenMenu {
-    background-color: #9de0e2;
+    background-color: #ffffff4d;
     border: 0.1px;
     border-radius: 6px;
     transition:0.8s ease;
     -moz-transition:0.8s ease;
 }
 .blueMenu {
-    background-color: #9ec7e4;
+    background-color: #ffffff4d;
     border: 0.1px;
     border-radius: 6px;
     transition:0.8s ease;

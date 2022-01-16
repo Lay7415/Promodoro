@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const ColorReducer = createSlice({
     name:'formreducer',
     initialState: {
-        ChangeColorWebsiteData:{backgound:'red', blackEffect:'redBtn'}
+        ChangeColorWebsiteData:{backgound:'red', blackEffect:'red'}
     },
     reducers:{
         ConsoleLogC(state,action) {

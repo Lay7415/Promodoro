@@ -1,0 +1,36 @@
+.btn {
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    border: 0.1px;
+    width: 175px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.box {
+    padding-bottom: 40px;
+    display: flex;
+}
+.icon {
+    margin-left: 20px;
+    cursor: pointer;
+}
+.btn {
+    margin-left: 30% ;
+}
+.red {
+    color: #DB524D;
+    transition:0.8s ease;
+    -moz-transition:0.8s ease;
+}
+.seaGreen {
+    color: #4C8385;
+    transition:0.8s ease;
+    -moz-transition:0.8s ease;
+}
+.blue {
+    color: #497697;
+    transition:0.8s ease;
+    -moz-transition:0.8s ease;
+}

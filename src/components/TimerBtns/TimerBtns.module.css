@@ -4,29 +4,41 @@
     padding: 20px;
 }
 .redBtn {
-    background-color: #e49c99;
+    width: 110px;
+    height: 28px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #E49C99;
     border: 0.1px;
     border-radius: 6px;
-    transition:0.8s ease;
-    -moz-transition:0.8s ease;
+    transition:0.7s ease;
+    -moz-transition:0.7s ease;
 }
 .seaGreenBtn {
-    background-color: #9de0e2;
+    width: 110px;
+    height: 28px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #ffffff00;
     border: 0.1px;
     border-radius: 6px;
-    transition:0.8s ease;
-    -moz-transition:0.8s ease;
+    transition:0.7s ease;
+    -moz-transition:0.7s ease;
 }
 .blueBtn {
-    background-color: #9ec7e4;
+    width: 110px;
+    height: 28px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #ffffff00;
     border: 0.1px;
     border-radius: 6px;
-    transition:0.8s ease;
-    -moz-transition:0.8s ease;
+    transition:0.7s ease;
+    -moz-transition:0.7s ease;
 }
 .activebtn {
-    filter: brightness(85%);
-    transition:0.2s ease;
-    -moz-transition:0.2s ease;
-    -webkit-transition:0.2s ease;
+    background-color: rgba(0, 0, 0, 0.253);
+    font-weight: bolder;
+    transition:0.3s ease;
+    -moz-transition:0.3s ease;
 }

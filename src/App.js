@@ -1,9 +1,12 @@
 import './App.css';
 import Timer from './components/Timer/Timer';
+import TimerPage from './components/Timer_page/TimerPage';
 function App() {
   return (
     <div className="App">
-      <Timer/>
+      <TimerPage>
+        <Timer/>
+      </TimerPage>
     </div>
   );
 }

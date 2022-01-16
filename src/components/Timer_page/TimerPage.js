@@ -5,11 +5,11 @@ const TimerPage =(props)=> {
     console.log(colorChangeData)
     const ChangeColorWebsiteHundler =()=> {
         if(colorChangeData === 'red') {
-            return classes.redMenu
+            return classes.box +' '+classes.redMenu
         } else if(colorChangeData === 'seaGreen') {
-            return classes.seaGreenMenu
+            return classes.box +' '+ classes.seaGreenMenu
         } else if(colorChangeData === 'blue') {
-            return classes.blueMenu
+            return classes.box +' '+ classes.blueMenu
         }
     }
     return<div className={ChangeColorWebsiteHundler()}>{props.children}</div>
