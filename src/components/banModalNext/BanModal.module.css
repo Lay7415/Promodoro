@@ -1,0 +1,33 @@
+.boxSize {
+    width: 450px;
+    height: 150px;
+}
+.btnBox {
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+}
+.content {
+    padding: 20px;
+}
+.okBtn {
+    width: 80px;
+    height: 40px;
+    background-color: #4747ff;
+    color: #ffffff;
+    border: 0.1px;
+    border-radius: 12%;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+.cancelBtn {
+    width: 80px;
+    height: 40px;
+    background-color: #ffffff;
+    color: #4747ff;
+    border: 0.1px solid rgb(209, 209, 209);
+    border-radius: 12%;
+    font-size: 15px;
+    font-weight: bold;
+}

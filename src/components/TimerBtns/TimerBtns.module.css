@@ -1,0 +1,22 @@
+.wrapBtns {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.btn {
+    width: 110px;
+    height: 28px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0.1px;
+    border-radius: 6px;
+    transition:0.7s ease;
+    opacity: 1;
+}
+.activebtn {
+    background-color: rgba(0, 0, 0, 0.253);
+    font-weight: bolder;
+    transition:0.3s ease;
+    font-weight: 900;
+}

@@ -1,9 +1,14 @@
 import './App.css';
-import TimerPage from './components/Timer_page/TimerPage';
+import Timer from './components/Timer/Timer';
+import Wrapper from './components/Timer-page/Wrapper';
+import Navbar from './components/navbar/Navbar';
 function App() {
   return (
     <div className="App">
-      <TimerPage>dfgdsfgds</TimerPage>
+      <Navbar/>
+      <Wrapper>
+        <Timer/>
+      </Wrapper>
     </div>
   );
 }

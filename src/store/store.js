@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit"
 import TimerReducer from "./TimerReducer"
-import ColorReducer from "./ColorReducer"
+import ModalWindow from "./ModalReducer"
 const store = configureStore({
     reducer: {
         timer: TimerReducer.reducer,
-        color: ColorReducer.reducer,
+        modal:ModalWindow.reducer
     }
 })
 export default store

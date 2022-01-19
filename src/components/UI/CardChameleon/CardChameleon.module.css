@@ -1,0 +1,21 @@
+.redMenu {
+    background-color: #E49C99;
+    border: 0.1px;
+    border-radius: 6px;
+    transition:0.8s ease;
+    -moz-transition:0.8s ease;
+}
+.seaGreenMenu {
+    background-color: #ffffff4d;
+    border: 0.1px;
+    border-radius: 6px;
+    transition:0.8s ease;
+    -moz-transition:0.8s ease;
+}
+.blueMenu {
+    background-color: #ffffff4d;
+    border: 0.1px;
+    border-radius: 6px;
+    transition:0.8s ease;
+    -moz-transition:0.8s ease;
+}
