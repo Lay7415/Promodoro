@@ -5,8 +5,8 @@ import TimerStartBtn from '../TimerStartBtn/TimerStartBtn';
 import { TimerReducerActions } from '../../store/TimerReducer';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { ModalWindowActions } from '../../store/ModalReducer';
 const Timer =()=> {
     const dispatch = useDispatch()
     const minutes = useSelector(state => state.timer.minutes)
@@ -17,8 +17,6 @@ const Timer =()=> {
     const autoBreak = useSelector(state => state.timer.timeSettingData.autoBreak)
     const count = useSelector(state => state.timer.count)
     const longBreakInt = useSelector(state => state.timer.timeSettingData.longBreakInt)
-    const [withZero, setWithZero] = useState(false)
-    const [doubleZero, setShowDoubleZero] = useState(false)
     const longBreakInterval = parseInt(longBreakInt, 10)
 
     function timerHundler() {
@@ -33,30 +31,44 @@ const Timer =()=> {
     }
     function autoFunctionHundler() {
         if(seconds === 0 && minutes === 0) {
-            dispatch(TimerReducerActions.incrementCount())
-            if(autoBreak && timerType === 'shortBreak') {
+            if(autoStart && timerType === 'shortBreak') {
                 dispatch(TimerReducerActions.changeTimerToPomodoro())
                 dispatch((TimerReducerActions.defineTimer('pomodoro')))
+                dispatch(ModalWindowActions.changeNextValue(true))
+                dispatch(TimerReducerActions.incrementCount())
             } else if(count < longBreakInterval && autoBreak && timerType === 'pomodoro') {
                 dispatch(TimerReducerActions.changeTimerToShortBreak())
                 dispatch((TimerReducerActions.defineTimer('shortBreak')))
+                dispatch(ModalWindowActions.changeNextValue(true))
             } else if(count === longBreakInterval && autoBreak && timerType === 'pomodoro') {
                 dispatch(TimerReducerActions.changeTimerToLongBreak())
                 dispatch((TimerReducerActions.defineTimer('longBreak')))
+                dispatch(ModalWindowActions.changeNextValue(true))
             } else if(autoStart && timerType === 'longBreak') {
                 dispatch(TimerReducerActions.newCount())
                 dispatch((TimerReducerActions.defineTimer('pomodoro')))
+                dispatch(ModalWindowActions.changeNextValue(true))
                 dispatch(TimerReducerActions.changeTimerToPomodoro())
             }
         }
     }
-    useEffect(() => {
-        if(seconds < 10) {
-            setWithZero(true)
-        } else if(seconds > 10) {
-            setWithZero(false)
+    function checkMinutes() {
+        if(minutes < 10) {
+            return `0${minutes}`
+        } else if(minutes > 9) {
+            return minutes
         }
-
+    }
+    function checkSeconds() {
+        if(seconds < 10) {
+            return `0${seconds}` 
+        } else if(seconds > 9 && seconds < 60) {
+            return seconds
+        } else if(seconds === 60) {
+            return '00'
+        }
+    }
+    useEffect(() => {
         if(pause) {   
             timerHundler();
             autoFunctionHundler();
@@ -67,7 +79,7 @@ const Timer =()=> {
     return <div className={classes.box}>
         <CardChameleon>
             <TimerBtns/>
-            <div className={classes.timer}>{minutes}:{withZero? 0 : ''}{doubleZero? 0 : seconds }</div>
+            <div className={classes.timer}>{checkMinutes()}:{checkSeconds()}</div>
             <TimerStartBtn/>
         </CardChameleon>
     </div>

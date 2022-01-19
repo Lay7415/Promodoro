@@ -49,7 +49,7 @@ const TimeSetting =()=> {
         dispatch(TimerReducerActions.updateSeconds())
         dispatch(TimerReducerActions.newCount())
         dispatch(ModalWindowActions.clickActiveSettingModal())
-
+        dispatch(TimerReducerActions.updateFirstClick())
         if(timerType === 'pomodoro') {
             dispatch(TimerReducerActions.changeTimerToPomodoro())
         }else if(timerType === 'shortBreak') {

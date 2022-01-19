@@ -21,6 +21,9 @@ const TimerReducer = createSlice({
         decrementFirstClick(state) {
             state.firstClick = state.firstClick + 1;
         },
+        updateFirstClick(state) {
+            state.firstClick = 0
+        },
         changeTimeSetting(state,action) {
             console.log(action)
             state.timeSettingData = action.payload.timeSettingData

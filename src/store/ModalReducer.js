@@ -5,7 +5,7 @@ const ModalWindow = createSlice({
         settingModal:false,
         banModal:false,
         next: false,
-        checkedColorWithModal: '',
+        checkedColorWithModal: 'pomodoro',
     },
     reducers:{
         clickActiveSettingModal(state) {

@@ -9,6 +9,7 @@ const NextBtn =()=> {
         dispatch(TimerReducerActions.changePauseValue(false))
         dispatch(ModalWindowActions.clickActiveBanModal())
         dispatch(ModalWindowActions.changeNextValue(true))
+        dispatch(TimerReducerActions.updateFirstClick())
     }
     return <img onClick={nextBtnHundler} className={classes.nextBtn} src={nextbtn} alt='next_button' />
 }

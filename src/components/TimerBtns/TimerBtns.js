@@ -16,7 +16,8 @@ const TimerBtns =()=> {
             dispatch((TimerReducerActions.defineTimer('pomodoro')))
             dispatch(TimerReducerActions.changeTimerToPomodoro())
             dispatch(TimerReducerActions.changePauseValue(false))
-            dispatch(TimerReducerActions.updateSeconds())    
+            dispatch(TimerReducerActions.updateSeconds())
+            dispatch(TimerReducerActions.newCount())    
         }
     };
     const shortBreakBtnHundler=()=> {
@@ -27,7 +28,8 @@ const TimerBtns =()=> {
             dispatch((TimerReducerActions.defineTimer('shortBreak')))
             dispatch(TimerReducerActions.changeTimerToShortBreak())
             dispatch(TimerReducerActions.changePauseValue(false))
-            dispatch(TimerReducerActions.updateSeconds())    
+            dispatch(TimerReducerActions.updateSeconds())
+            dispatch(TimerReducerActions.newCount())    
         }
    }
     const longBreakBtnHundler=()=> {
@@ -38,7 +40,8 @@ const TimerBtns =()=> {
             dispatch((TimerReducerActions.defineTimer('longBreak')))
             dispatch(TimerReducerActions.changeTimerToLongBreak())
             dispatch(TimerReducerActions.changePauseValue(false))
-            dispatch(TimerReducerActions.updateSeconds())    
+            dispatch(TimerReducerActions.updateSeconds())
+            dispatch(TimerReducerActions.newCount())    
         }
     }
     const promodoroBtnColorHundler =()=> {

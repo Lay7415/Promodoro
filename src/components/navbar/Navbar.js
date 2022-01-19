@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import Modal from '../UI/modal/Modal';
 import { ModalWindowActions } from '../../store/ModalReducer';
 import BanModalNext from '../banModalNext/BanModalNext';
+import { TimerReducerActions } from '../../store/TimerReducer';
  const Navbar=()=> {
     const dispatch = useDispatch()
     const timerType = useSelector(state => state.timer.timerType)
@@ -13,6 +14,7 @@ import BanModalNext from '../banModalNext/BanModalNext';
     const banModal = useSelector(state => state.modal.banModal)
     
     const setActiveModalWindow=()=> {
+        dispatch(TimerReducerActions.changePauseValue(false))
         dispatch(ModalWindowActions.clickActiveSettingModal())
     }
     

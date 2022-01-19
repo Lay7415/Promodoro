@@ -23,10 +23,11 @@ const BanModalNext =()=> {
     }
     const checkWhithTimerTypeAndNextValue=()=> {
         if(nextValue) {
-            dispatch(TimerReducerActions.incrementCount())
+            console.log(count)
             if( timerType === 'shortBreak') {
                 dispatch(TimerReducerActions.changeTimerToPomodoro())
                 dispatch((TimerReducerActions.defineTimer('pomodoro')))
+                dispatch(TimerReducerActions.incrementCount())
             } else if(count < longBreakInterval &&  timerType === 'pomodoro') {
                 dispatch(TimerReducerActions.changeTimerToShortBreak())
                 dispatch((TimerReducerActions.defineTimer('shortBreak')))
