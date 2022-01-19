@@ -1,45 +1,66 @@
 import classes from './TimerBtns.module.css';
-import { ColorReducerActions } from '../../store/ColorReducer';
+import { TimerReducerActions } from '../../store/TimerReducer';
+import { ModalWindowActions } from '../../store/ModalReducer';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
 const TimerBtns =()=> {
-    const [color,setColor] = useState(classes.redBtn);
-    const colorChangeData = useSelector(state => state.color.ChangeColorWebsiteData.blackEffect)
+    const timerType = useSelector(state => state.timer.timerType)
+    const pause = useSelector(state => state.timer.pause)
     const dispatch = useDispatch()
 
-    function promodoroBtnHundler() {
-        setColor(classes.redBtn)
-        dispatch(ColorReducerActions.ChangeColorMenu({backgound:'red',blackEffect:'red'}))
+    const promodoroBtnHundler=()=> {
+        if(pause) {
+            dispatch(ModalWindowActions.clickActiveBanModal())
+            dispatch(ModalWindowActions.checkColorWithModalValue('pomodoro'))
+        } else {
+            dispatch((TimerReducerActions.defineTimer('pomodoro')))
+            dispatch(TimerReducerActions.changeTimerToPomodoro())
+            dispatch(TimerReducerActions.changePauseValue(false))
+            dispatch(TimerReducerActions.updateSeconds())    
+        }
     };
-    function shortBreakBtnHundler() {
-        setColor(classes.seaGreenBtn)
-        dispatch(ColorReducerActions.ChangeColorMenu({backgound:'seaGreen',blackEffect:'seaGreen'}))
+    const shortBreakBtnHundler=()=> {
+        if(pause) {
+            dispatch(ModalWindowActions.clickActiveBanModal())
+            dispatch(ModalWindowActions.checkColorWithModalValue('shortBreak'))
+        } else {
+            dispatch((TimerReducerActions.defineTimer('shortBreak')))
+            dispatch(TimerReducerActions.changeTimerToShortBreak())
+            dispatch(TimerReducerActions.changePauseValue(false))
+            dispatch(TimerReducerActions.updateSeconds())    
+        }
    }
-    function longBreakBtnHundler() {
-        setColor(classes.blueBtn)
-        dispatch(ColorReducerActions.ChangeColorMenu({backgound:'blue',blackEffect:'blue'}))
+    const longBreakBtnHundler=()=> {
+        if(pause) {
+            dispatch(ModalWindowActions.clickActiveBanModal())
+            dispatch(ModalWindowActions.checkColorWithModalValue('longBreak'))
+        } else {
+            dispatch((TimerReducerActions.defineTimer('longBreak')))
+            dispatch(TimerReducerActions.changeTimerToLongBreak())
+            dispatch(TimerReducerActions.changePauseValue(false))
+            dispatch(TimerReducerActions.updateSeconds())    
+        }
     }
     const promodoroBtnColorHundler =()=> {
-        if(colorChangeData === 'red') {
-            return color+' '+classes.activebtn
+        if(timerType === 'pomodoro') {
+            return classes.btn+' '+classes.activebtn
         } else  {
-            return color
+            return classes.btn
         }
 
     }
     const shortBreackBtnColorHundler=()=> {
-        if(colorChangeData === 'seaGreen') {
-            return color+' '+classes.activebtn
+        if(timerType === 'shortBreak') {
+            return classes.btn+' '+classes.activebtn
         } else {
-            return color
+            return classes.btn
         }
     };
     const longBreakBtnColorHundler =()=> {
-        if(colorChangeData === 'blue') {
-            return color+' '+classes.activebtn
+        if(timerType === 'longBreak') {
+            return classes.btn+' '+classes.activebtn
         } else {
-            return color
+            return classes.btn
         }
     }
     return <div className={classes.wrapBtns}>

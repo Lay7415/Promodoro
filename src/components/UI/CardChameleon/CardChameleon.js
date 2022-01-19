@@ -1,13 +1,13 @@
 import classes from './CardChameleon.module.css';
 import { useSelector } from 'react-redux';
 const CardChameleon =(props)=> {
-    const colorChangeData = useSelector(state => state.color.ChangeColorWebsiteData.backgound)
+    const timerType = useSelector(state => state.timer.timerType)
     const ChangeCardColorHundler=()=> {
-        if(colorChangeData === 'red') {
+        if(timerType === 'pomodoro') {
             return classes.redMenu
-        } else if(colorChangeData === 'seaGreen') {
+        } else if(timerType === 'shortBreak') {
             return classes.seaGreenMenu
-        } else if(colorChangeData === 'blue') {
+        } else if(timerType === 'longBreak') {
             return classes.blueMenu
         }
     }

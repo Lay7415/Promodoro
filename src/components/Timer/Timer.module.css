@@ -1,7 +1,12 @@
 .box {
     width: 500px;
-    height: 700px;
+    height: 500px;
+    margin: 20px;
+    align-items: center;
+}
+.timer {
+    font-size: 120px;
     text-align: center;
-    word-wrap: break-word;
-    
+    font-weight:600;
+    color: #ffffff;
 }

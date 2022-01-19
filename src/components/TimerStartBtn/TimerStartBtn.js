@@ -1,32 +1,52 @@
 import classes from './TimerStartBtn.module.css';
-import nextbtn from '../../images/nextbtn.png';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { TimerReducerActions } from '../../store/TimerReducer';
+import NextBtn from '../NextBtn/NextBtn';
 const TimerStartBtn =()=> {
-    const [changeColor,seChangeColor] = useState(true)
-    const colorChangeData = useSelector(state => state.color.ChangeColorWebsiteData.backgound)
-    const ChangeBtnColorHundler=()=> {
-        if(colorChangeData === 'red') {
-            return classes.btn+' '+ classes.red
-        } else if(colorChangeData === 'seaGreen') {
-            return classes.btn+' '+ classes.seaGreen
-        } else if(colorChangeData === 'blue') {
-            return classes.btn+' '+ classes.blue
+    const pause = useSelector(state => state.timer.pause)
+    const firstClick = useSelector(state => state.timer.firstClick)
+    const timerType = useSelector(state => state.timer.timerType)
+    const dispatch = useDispatch()
+    
+    const changeBtnStartColorHundler=()=> {
+        if(timerType === 'pomodoro') {
+            return classes.startBtn+' '+ classes.red
+        } else if(timerType === 'shortBreak') {
+            return classes.startBtn+' '+ classes.seaGreen
+        } else if(timerType === 'longBreak') {
+            return classes.startBtn+' '+ classes.blue
         }
     }
-    const BtnStartClickHundler=()=> {
-        seChangeColor(!changeColor)
+    const changeBtnStopColorHundler=()=> {
+        if(timerType === 'pomodoro') {
+            return classes.stopBtn+' '+ classes.red
+        } else if(timerType === 'shortBreak') {
+            return classes.stopBtn+' '+ classes.seaGreen
+        } else if(timerType === 'longBreak') {
+            return classes.stopBtn+' '+ classes.blue
+        }
     }
-    const BtnStopClickHundler=()=> {
-        seChangeColor(!changeColor)
+    const bunOnClick=()=> {
+        if(pause) {
+            return classes.box
+        } else {
+            return classes.box
+        }
     }
-    const BtnNextTimerClickHundler=()=> {
-        seChangeColor(!changeColor)
+    
+    const btnClickHundler=()=> {
+        dispatch(TimerReducerActions.changePauseValue(!pause))
+        if(firstClick === 0){
+            dispatch(TimerReducerActions.decrementMinutes())
+            dispatch(TimerReducerActions.decrementFirstClick())
+        }
     }
-    return <div className={classes.box}>
-        {changeColor? <button onClick={BtnStartClickHundler} className={ChangeBtnColorHundler()}>START</button> : ''}
-        {!changeColor? <button onClick={BtnStopClickHundler} className={ChangeBtnColorHundler()}>STOP</button> : ''}
-        {!changeColor? <img onClick={BtnNextTimerClickHundler} className={classes.icon} src={nextbtn} alt='nextTimerbtn'/> : ''}
+    
+    return <div className={bunOnClick()}>
+        {!pause? <button onClick={btnClickHundler} className={changeBtnStartColorHundler()}>START</button> : ''}
+        {pause? <button onClick={btnClickHundler} className={changeBtnStopColorHundler()}>STOP</button> : ''}
+        {pause? <NextBtn/> : ''}
     </div>
 }
 export default TimerStartBtn

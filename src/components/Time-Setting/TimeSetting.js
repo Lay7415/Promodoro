@@ -1,19 +1,24 @@
 import classes from './TimeSetting.module.css';
 import Card from '../UI/Card/Card'; 
 import {useDispatch} from 'react-redux'
-import { TimerReducerActions } from '../../store/TimerReducer';
 import { useState } from 'react';
-const TimeSetting =()=> {
-    const dispatch = useDispatch()
-    const [promodoro,setPromodoro] = useState();
-    const [shortBreak,setShortBreak] = useState();
-    const [longBreak,setLongBreak] = useState();
-    const [autoBreak,setAutoBreak] = useState(false);
-    const [autoStart,setAutoStart] = useState(false);
-    const [longBreakInt,setLongBreakInt] = useState()
+import { useSelector } from 'react-redux';
+import { TimerReducerActions } from '../../store/TimerReducer';
+import { ModalWindowActions } from '../../store/ModalReducer';
 
-    const promodoroValueChangeHundler =(event)=> {
-        setPromodoro(event.target.value)
+const TimeSetting =()=> {
+    const [pomodoro,setPomodoro] = useState(1);
+    const [shortBreak,setShortBreak] = useState(1);
+    const [longBreak,setLongBreak] = useState(1);
+    const [longBreakInt,setLongBreakInt] = useState(2);
+    const [autoStart,setAutoStart] = useState(false)
+    const [autoBreak,setautoBreak] = useState(false)
+    const timerType = useSelector(state => state.timer.timerType)
+    const dispatch = useDispatch()
+
+
+    const pomodoroValueChangeHundler =(event)=> {
+        setPomodoro(event.target.value)
     }
     const shortBreakValueChangeHundler =(event)=> {
         setShortBreak(event.target.value)
@@ -21,26 +26,37 @@ const TimeSetting =()=> {
     const longBreakValueChangeHundler =(event)=> {
         setLongBreak(event.target.value)
     }
-    const autoBreakValueChangeHundler =()=> {
-        setAutoBreak(!autoBreak)
-    }
-    const autoStartValueChangeHundler =()=> {
-        setAutoStart(!autoStart)
-    }
     const longBreakIntervalChangeHundler =(event)=> {
         setLongBreakInt(event.target.value)
+    }
+    const autoStartChangeHundler=(event)=> {
+        setAutoStart(!autoStart)
+    }
+    const autoBreakChangeHundler=(event)=> {
+        setautoBreak(!autoBreak)
     }
     const TimeSettingFormSubmitHundler =(event)=> {
         event.preventDefault()
         const TimeSettingInfo = {
-            promodoro: promodoro,
+            pomodoro: pomodoro,
             shortBreak: shortBreak,
             longBreak: longBreak,
-            autoBreak: autoBreak,
-            autoStart: autoStart,
             longBreakInt: longBreakInt,
+            autoStart: autoStart,
+            autoBreak:autoBreak,
         }
-        dispatch(TimerReducerActions.ConsoleLog(TimeSettingInfo))
+        dispatch(TimerReducerActions.changeTimeSetting({timeSettingData:TimeSettingInfo}))
+        dispatch(TimerReducerActions.updateSeconds())
+        dispatch(TimerReducerActions.newCount())
+        dispatch(ModalWindowActions.clickActiveSettingModal())
+
+        if(timerType === 'pomodoro') {
+            dispatch(TimerReducerActions.changeTimerToPomodoro())
+        }else if(timerType === 'shortBreak') {
+            dispatch(TimerReducerActions.changeTimerToShortBreak())
+        } else if(timerType === 'longBreak') {
+            dispatch(TimerReducerActions.changeTimerToLongBreak())
+        }
     }
     return <div className={classes.box}>
             <Card>
@@ -51,35 +67,35 @@ const TimeSetting =()=> {
                 <h3>Time(minutes)</h3>
                 <div className={classes.box}>
                     <div>
-                        <h4>Promodoro</h4>
-                        <input onChange={promodoroValueChangeHundler} min={0} className={classes.input} type='number'/>
+                        <h4>Pomodoro</h4>
+                        <input value={pomodoro} onChange={pomodoroValueChangeHundler} min={0} className={classes.input} type='number'/>
                     </div>
                     <div>
                         <h4>Short break</h4>
-                        <input onChange={shortBreakValueChangeHundler} min={0} className={classes.input} type='number'/>
+                        <input value={shortBreak} onChange={shortBreakValueChangeHundler} min={0} className={classes.input} type='number'/>
                     </div>
                     <div>
                         <h4>Long break</h4>
-                        <input onChange={longBreakValueChangeHundler} min={0} className={classes.input} type='number'/>
+                        <input value={longBreak} onChange={longBreakValueChangeHundler} min={0} className={classes.input} type='number'/>
                     </div>
                 </div>
                 <div className={classes.box}>
                     <h4>Auto start Breaks?</h4>
                     <label className={classes.switch}>
-                        <input onChange={autoBreakValueChangeHundler} className={classes.check} type="checkbox"/>
+                        <input onChange={autoBreakChangeHundler} className={classes.check} type="checkbox"/>
                         <span className={classes.slider}></span>
                     </label>
                 </div>
                 <div className={classes.box}>
                     <h4>Auto start Pomodoros?</h4>
                     <label className={classes.switch}>
-                        <input onChange={autoStartValueChangeHundler} className={classes.check} type="checkbox"/>
+                        <input onChange={autoStartChangeHundler} className={classes.check} type="checkbox"/>
                         <span className={classes.slider}></span>
                     </label>
                 </div>
                 <div className={classes.box}>
                     <h4>Long Break interval</h4>
-                    <input onChange={longBreakIntervalChangeHundler} min={0} className={classes.input} type='number'/>
+                    <input value={longBreakInt} onChange={longBreakIntervalChangeHundler} min={0} className={classes.input} type='number'/>
                 </div>
                 <button className={classes.button}>OK</button>
             </form>
